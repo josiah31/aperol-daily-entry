@@ -21,7 +21,7 @@ jobs:
           sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
           google-chrome --version
 
-  - name: Install ChromeDriver (fixed version)
+- name: Install ChromeDriver (fixed version)
   run: |
     CHROMEDRIVER_VERSION=126.0.6478.61
     echo "Using fixed ChromeDriver version: $CHROMEDRIVER_VERSION"
