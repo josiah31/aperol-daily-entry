@@ -33,7 +33,6 @@ jobs:
           sudo chmod +x /usr/local/bin/chromedriver
           chromedriver --version
 
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
