@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Debug check workflow content
-        run: cat .github/workflows/daily_submission.yml
-
       - name: Install Chrome
         run: |
           sudo apt-get update
@@ -24,12 +21,10 @@ jobs:
           sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
           google-chrome --version
 
-      - name: Install ChromeDriver
+      - name: Install ChromeDriver (fixed version)
         run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
-          echo "Detected Chrome version: $CHROME_VERSION"
-          CHROMEDRIVER_VERSION=$(curl -sS "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}")
-          echo "Downloading ChromeDriver version: $CHROMEDRIVER_VERSION"
+          CHROMEDRIVER_VERSION=124.0.6367.91
+          echo "Using fixed ChromeDriver version: $CHROMEDRIVER_VERSION"
           wget -N https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/chromedriver
