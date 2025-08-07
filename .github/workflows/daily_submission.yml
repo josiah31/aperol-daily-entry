@@ -13,6 +13,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Debug check workflow content
+        run: cat .github/workflows/daily_submission.yml
+
       - name: Install Chrome
         run: |
           sudo apt-get update
