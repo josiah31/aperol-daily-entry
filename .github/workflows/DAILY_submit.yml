@@ -1,9 +1,9 @@
-name: Daily Aperol Form Submission
+name: Aperol Submit (Daily)
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # Runs daily at 20:00 UTC (7am AEST)
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+    - cron: '0 20 * * *'  # Daily at 20:00 UTC
+  workflow_dispatch:
 
 jobs:
   submit-form:
